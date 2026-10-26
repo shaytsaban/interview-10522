@@ -145,6 +145,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .fcell b{display:block;font-size:24px;margin-top:10px;line-height:1.2}
 .quad{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
 .qcard{border-radius:20px;padding:20px 20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-top:6px solid var(--gold)}
+.qcard{cursor:pointer;font-family:inherit;color:inherit;text-align:start;transition:transform .15s,background .15s}
+.qcard:hover{transform:translateY(-3px)}.qcard.on{background:rgba(255,255,255,.13);transform:translateY(-3px)}
 .qcard.r{border-top-color:var(--coral)}.qcard.g{border-top-color:#25a65f}
 .qcard b{display:block;font-size:25px;line-height:1.2;margin-bottom:8px}
 .qcard span{font-size:18.5px;line-height:1.45;color:#b8c6e8}
@@ -483,11 +485,12 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   <div class="huge">לא לנחש מי השתמש ב-AI.</div>
   <div class="say sig" style="margin-top:8px">לתכנן מטלות שבהן זה גלוי.</div>
   <div class="quad">
-    <div class="qcard g"><small>ממ״ן · AI חלק מהמטלה</small><b>לשפוט את המכונה</b><span>מוצאים את ההטיה בתשובה של מודל שפה</span></div>
-    <div class="qcard"><small>ממ״ן · נתונים מקוריים</small><b>מבדק רעש אישי</b><span>אותו מקרה ל-6 אנשים ולמודל שפה 6 פעמים</span></div>
-    <div class="qcard"><small>ממ״ן · לאורך הסמסטר</small><b>טורניר תחזיות</b><span>תחזיות שאי אפשר לכתוב בדיעבד</span></div>
-    <div class="qcard r"><small>בחינה · ללא AI</small><b>מקרי בוחן חדשים</b><span>לזהות, לנמק, לתקן. בלי הגדרות</span></div>
+    <button class="qcard g" data-i="0"><small>ממ״ן · AI חלק מהמטלה</small><b>לשפוט את המכונה</b><span>מוצאים את ההטיה בתשובה של מודל שפה</span></button>
+    <button class="qcard" data-i="1"><small>ממ״ן · נתונים מקוריים</small><b>מבדק רעש אישי</b><span>אותו מקרה ל-6 אנשים ולמודל שפה 6 פעמים</span></button>
+    <button class="qcard" data-i="2"><small>ממ״ן · לאורך הסמסטר</small><b>טורניר תחזיות</b><span>תחזיות שאי אפשר לכתוב בדיעבד</span></button>
+    <button class="qcard r" data-i="3"><small>בחינה · ללא AI</small><b>מקרי בוחן חדשים</b><span>לזהות, לנמק, לתקן. בלי הגדרות</span></button>
   </div>
+  <div class="ldet" id="adet"><b class="h">לחצו על כרטיס כדי לראות איך זה עובד</b></div>
   <div class="tagc b">03 · הערכה</div>
 </section>
 
@@ -736,6 +739,9 @@ addEventListener('beforeprint',()=>{$$('.st').forEach(s=>s.classList.add('show')
 cards.forEach(c=>c.addEventListener('click',()=>{const d=D[c.dataset.i];cards.forEach(x=>x.classList.toggle('on',x===c));det.innerHTML='<b>'+d[0]+'</b><span>'+d[1]+'</span>';}));})();
 
 (function(){const D=[["עוגן כלכלי", "כלל מסודר לבחור החלטה: מחשבים כמה כל אפשרות שווה בממוצע, ובוחרים את הטובה ביותר.", "דוגמה: מציעים לך 50% סיכוי לזכות ב-100 ש״ח, או 40 ש״ח בטוחים. בממוצע ההימור שווה 50, אז \"נכון\" לבחור בו. רק אחרי שיודעים מה נכון, בודקים למה אנשים בוחרים אחרת.", "בקורס: מתחילים בזה כבר בשיעור הראשון, ביחידת המבוא."], ["בחירה בין-זמנית", "בחירה בין משהו שמקבלים עכשיו למשהו גדול יותר שמקבלים אחר כך.", "דוגמה: 100 ש״ח היום או 110 ש״ח בעוד חודש? רבים לוקחים את ה-100 מיד, אבל כשמציעים 100 בעוד שנה או 110 בעוד שנה וחודש, הם מחכים. כך נראה חיסכון לפנסיה שנדחה שוב ושוב.", "בקורס: נושא חדש, כי חסר אצל כהנמן. יחידה על פנסיה, חיסכון ואשראי."], ["ראיות ושחזור", "בדיקה אם ממצא מפורסם חוזר כשחוקרים אחרים עושים את הניסוי שוב.", "דוגמה: ניסוי טען שרמז קטן, כמו מילים על זקנה, גורם לאנשים ללכת לאט יותר. כשניסו לחזור עליו, לא קיבלו אותה תוצאה. ממצא שלא חוזר אי אפשר לסמוך עליו.", "בקורס: בודקים עם הסטודנטים פריימינג ודלדול אגו. כהנמן עצמו הודה ב-2017 שסמך יותר מדי על מחקרים קטנים."], ["ניסויי שדה", "ניסוי שנעשה במקום אמיתי, עם אנשים שלא יודעים שהם נבדקים.", "דוגמה: חברה משנה את נוסח המכתב שנשלח ללקוחות, ובודקת כמה מהם באמת משלמים בזמן. בלי כיתה, בלי שאלון, רק התנהגות אמיתית.", "בקורס: קוראים מחקרי שדה כמו Hossain & List ו-DellaVigna & Linos, ורואים שהאפקטים בשטח קטנים מאלה שבמעבדה."], ["שיפוט ו-AI", "בדיקה אם מודל שפה, כמו ChatGPT, מחליט כמו אדם, כולל אותן טעויות.", "דוגמה: נותנים למודל את שאלת העיגון: \"האם המחיר גבוה מ-5,000 ש״ח? כמה לדעתך הוא שווה?\". בודקים אם המספר הראשון משפיע גם על תשובתו, כמו אצל סטודנטים.", "בקורס: מריצים מודלי שפה על אותן שאלות שנתנו לכיתה, ומשווים. במטלות מתכננים עבודה שבה ברור איפה השתמשו ב-AI."]];const det=document.getElementById('ldet');const cs=document.querySelectorAll('#s-struct .fcell');
+cs.forEach(c=>c.addEventListener('click',()=>{const d=D[c.dataset.i];cs.forEach(x=>x.classList.toggle('on',x===c));det.innerHTML='<b>'+d[0]+'</b><p>'+d[1]+'</p><p class="ex">'+d[2]+'</p><p class="cr">'+d[3]+'</p>';}));})();
+
+(function(){const D=[["לשפוט את המכונה", "הסטודנט מקבל תשובה של מודל שפה, ותפקידו למצוא בה את הטעות או ההטיה.", "דוגמה: שואלים את המודל אם להמשיך בפרויקט שכבר הושקעו בו מיליונים, והוא ממליץ להמשיך. הסטודנט מזהה: זו הטיית העלות השקועה.", "למה זה עובד: ה-AI הוא חלק מהמטלה, אז אין מה להסתיר."], ["מבדק רעש אישי", "הסטודנט בודק כמה שיפוטים שונים זה מזה כשמקרה זהה מוצג לכמה שופטים.", "דוגמה: אותו מועמד לעבודה מדורג על ידי 6 אנשים ועל ידי מודל שפה בשש הרצות. הסטודנט מחשב כמה הציונים מפוזרים.", "למה זה עובד: הנתונים נאספים אצל הסטודנט עצמו, אז אי אפשר להוציא אותם מוכנים מ-AI."], ["טורניר תחזיות", "הסטודנטים נותנים תחזיות על אירועים עתידיים לאורך הסמסטר, ומקבלים ציון לפי הדיוק.", "דוגמה: \"הסיכוי שהריבית תרד ברבעון הבא: 30%\". כשהאירוע קורה, מחשבים ציון ברייר שמודד כמה התחזית הייתה קרובה למציאות.", "למה זה עובד: אי אפשר לכתוב תחזית בדיעבד."], ["מקרי בוחן חדשים", "בבחינה, בלי AI, הסטודנט מקבל מקרה שלא ראה ומטפל בו.", "דוגמה: מנהל מעריך עובד לפי הרושם הראשון. הסטודנט מזהה את ההטיה, מנמק למה זו הטיה, ומציע איך לתקן. אין הגדרות לשינון.", "למה זה עובד: בודקים הבנה, ולא זכירה."]];const det=document.getElementById('adet');const cs=document.querySelectorAll('#s-assess .qcard');
 cs.forEach(c=>c.addEventListener('click',()=>{const d=D[c.dataset.i];cs.forEach(x=>x.classList.toggle('on',x===c));det.innerHTML='<b>'+d[0]+'</b><p>'+d[1]+'</p><p class="ex">'+d[2]+'</p><p class="cr">'+d[3]+'</p>';}));})();
 </script>
 </body>
