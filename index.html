@@ -128,6 +128,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .mix div{display:grid;place-items:center;color:#fff;transition:width .4s}
 
 /* cards */
+.demo{display:inline-block;margin-top:26px;background:var(--coral);color:#fff;font-weight:800;font-size:26px;padding:16px 32px;border-radius:16px;text-decoration:none;box-shadow:0 10px 26px rgba(255,107,74,.3)}
+.demo:hover{filter:brightness(1.08)}
 .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
 .tcard{background:#fff;border-radius:22px;padding:24px 26px;box-shadow:0 2px 0 var(--line),0 14px 34px rgba(22,33,58,.08);border-top:7px solid var(--sig)}
 .dark .tcard{background:rgba(255,255,255,.06);box-shadow:none;border:1px solid rgba(255,255,255,.14);border-top:7px solid var(--sig)}
@@ -430,6 +432,18 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   <div class="tagc b">חלק ב</div>
 </section>
 
+<section class="slide dark" id="s-build" data-title="כלים שבניתי" data-part="b">
+  <div class="big">הלמידה לא מוגבלת למערכת הרגילה.</div>
+  <div class="say" style="margin-top:8px;color:#b8c6e8">אני בונה בעצמי, בעזרת כלי AI, את מה שהקורס צריך:</div>
+  <div class="trio">
+    <div class="tcard"><div class="e">🎮</div><b>סימולציות</b><span>כמו מצב הרוח של השופט בהרצאה הזאת. הסטודנט מנסה בעצמו ורואה את ההטיה בנתונים.</span></div>
+    <div class="tcard"><div class="e">🖥️</div><b>מצגות אינטראקטיביות</b><span>כמו המצגת הזאת: כרטיסים שנפתחים, חידונים ומקורות בקליק, במקום שקפים סטטיים.</span></div>
+    <div class="tcard"><div class="e">🌐</div><b>אתרים ייעודיים</b><span>אתר שנבנה לקורס עצמו, פשוט וידידותי יותר ממה שמערכת למידה רגילה מאפשרת.</span></div>
+  </div>
+  <a class="demo" href="https://shaytsaban.github.io/computerized-business-analysis/" target="_blank" rel="noopener">להדגמה: אתר שבניתי לקורס ניתוח עסקי ממוחשב ←</a>
+  <div class="tagc b">חלק ב</div>
+</section>
+
 <section class="slide dark" id="s-struct" data-title="חמש שכבות" data-part="b">
   <div class="huge">הליבה נכונה.</div>
   <div class="say" style="margin-top:10px;color:#b8c6e8">מכהנמן ועד "רעש". שומרים עליה, ומוסיפים חמש שכבות:</div>
@@ -610,6 +624,7 @@ const NOTES={
  's-valley':['לבקש דוגמה מהכיתה: "משהו שהפתיע אתכם השנה?"','~0:40'],
  's-lclose':['שתי השורות העליונות לאט.','השאלה על ChatGPT: לתת לה לשבת. לעצור טיימר. יעד 10:00.'],
 's-partb':['מעבר לשיחה. "הקורס עבר לניהול וכלכלה. מה זה מחייב?"'],
+ 's-build':['לפתוח את האתר בלשונית חדשה ולהראות דקה: זו הדגמה של מה שהסטודנטים יקבלו.'],
  's-me':['לא לקרוא את הכרטיסים. לבחור דוגמה אחת: מיקרו-השקעות בעיגול = חשבונאות מנטלית וברירות מחדל.'],
  's-struct':['עוגן כלכלי: תועלת צפויה ובייס כבר בשיעור הראשון.','בחירה בין-זמנית חסרה היום: הטיית הווה, פנסיה, אשראי.','ראיות ושחזור: priming, דלדול אגו. כהנמן עצמו הודה ב-2017.','ניסויי שדה: Hossain & List, Pope & Schweitzer, DellaVigna & Linos.','AI: מודלי שפה כשופטים.'],
  's-syl':['ללחוץ על יחידה 9 (חדשה), 11 ו-13.','השלד בנוי ל-13 שבועות. הפירוט המלא בנספח המודפס.'],
