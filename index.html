@@ -130,6 +130,10 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .dark .tcard span{color:#b8c6e8}
 .five{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:36px}
 .fcell{border-radius:20px;padding:22px 16px;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15)}
+.fcell{cursor:pointer;font-family:inherit;color:inherit;transition:transform .15s,border-color .15s}
+.fcell:hover{transform:translateY(-3px)}.fcell.on{border-color:var(--gold);background:rgba(255,255,255,.12);transform:translateY(-3px)}
+.ldet{margin-top:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:16px 24px;min-height:150px;font-size:21px;line-height:1.5;color:#dbe4f7}
+.ldet b{display:block;font-size:26px;margin-bottom:6px;color:#fff}.ldet b.h{color:#9fb0d6;font-weight:600;font-size:22px}.ldet p{margin:0 0 6px}.ldet p+p{color:var(--sig2)}
 .fcell .e{font-size:50px}
 .fcell b{display:block;font-size:24px;margin-top:10px;line-height:1.2}
 .quad{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
@@ -414,12 +418,13 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   <div class="huge">הליבה נכונה.</div>
   <div class="say" style="margin-top:10px;color:#b8c6e8">מכהנמן ועד "רעש". שומרים עליה, ומוסיפים חמש שכבות:</div>
   <div class="five">
-    <div class="fcell"><div class="e">⚖️</div><b>עוגן<br>כלכלי</b></div>
-    <div class="fcell"><div class="e">⏳</div><b>בחירה<br>בין-זמנית</b></div>
-    <div class="fcell"><div class="e">🔁</div><b>ראיות<br>ושחזור</b></div>
-    <div class="fcell"><div class="e">🧪</div><b>ניסויי<br>שדה</b></div>
-    <div class="fcell"><div class="e">🤖</div><b>שיפוט<br>ו-AI</b></div>
+    <button class="fcell" data-i="0"><div class="e">⚖️</div><b>עוגן<br>כלכלי</b></button>
+    <button class="fcell" data-i="1"><div class="e">⏳</div><b>בחירה<br>בין-זמנית</b></button>
+    <button class="fcell" data-i="2"><div class="e">🔁</div><b>ראיות<br>ושחזור</b></button>
+    <button class="fcell" data-i="3"><div class="e">🧪</div><b>ניסויי<br>שדה</b></button>
+    <button class="fcell" data-i="4"><div class="e">🤖</div><b>שיפוט<br>ו-AI</b></button>
   </div>
+  <div class="ldet" id="ldet"><b class="h">לחצו על שכבה כדי לראות למה הכוונה</b></div>
   <div class="tagc b">01 · מבנה</div>
 </section>
 
@@ -715,6 +720,9 @@ addEventListener('beforeprint',()=>{$$('.st').forEach(s=>s.classList.add('show')
 
 (function(){const D=[["חוזים: לפני שמראים תוצאה, כל סטודנט מנחש אותה.", "למשל: \"כמה שעות ייקח לכם הממ״ן?\" כל אחד רושם הערכה לפני שמישהו רואה נתונים. הניחוש הוא נקודת ההתחלה."], ["משתתפים: הכיתה עצמה היא המדגם: כולם עושים את המשימה.", "למשל: סקר בזום, כשהכיתה מתחלקת לשני תנאים לפי חודש לידה, וכל תנאי מקבל גרסה אחרת של השאלה."], ["רואים נתונים: רואים מה יצא בכיתה, ומשווים לניחוש.", "התוצאות מוצגות מיד. הפער בין מה שניחשנו למה שהתקבל הוא הרגע שבו הטיה נהיית גלויה."], ["קוראים: רק עכשיו קוראים את המאמר המקורי.", "הקריאה באה אחרי החוויה האישית, ולכן הסטודנטים מבינים מה נבדק ולמה התוצאה חשובה. כך מגיעים לדיון במאמר עם משהו להשוות אליו."]];const det=document.getElementById('fdet');const cards=document.querySelectorAll('#s-live .fs');
 cards.forEach(c=>c.addEventListener('click',()=>{const d=D[c.dataset.i];cards.forEach(x=>x.classList.toggle('on',x===c));det.innerHTML='<b>'+d[0]+'</b><span>'+d[1]+'</span>';}));})();
+
+(function(){const D=[["עוגן כלכלי", "מודל מקובל לקבלת החלטות: תועלת צפויה וכלל בייס. קודם יודעים מה \"נכון\" לעשות, ורק אז בודקים איפה אנשים סוטים.", "בקורס: מתחילים בו כבר בשיעור הראשון, ויחידת המבוא משווה בין מודל נורמטיבי למודל תיאורי."], ["בחירה בין-זמנית", "איך אנחנו בוחרים בין עכשיו לאחר כך. אנשים מעדיפים 100 ש״ח היום על 110 בעוד חודש, וזה משפיע על חיסכון ואשראי.", "בקורס: נושא חדש, כי חסר בכהנמן. יחידה עצמאית על הטיית הווה, פנסיה ואשראי."], ["ראיות ושחזור", "כמה מהממצאים הקלאסיים עדיין עומדים. ממצא שלא חוזר בניסוי חוזר הוא חשוד, גם אם הוא מפורסם.", "בקורס: בודקים עם הסטודנטים פריימינג ודלדול אגו. כהנמן עצמו הודה ב-2017 שהיה סומך יותר מדי על מחקרים קטנים."], ["ניסויי שדה", "ניסוי במציאות ולא במעבדה: חנות, מפעל או אתר, עם אנשים שלא יודעים שהם נבדקים.", "בקורס: קוראים מחקרי שדה כמו Hossain & List ו-DellaVigna & Linos, ורואים שהאפקטים בשטח קטנים מאלה שבמעבדה."], ["שיפוט ו-AI", "האם מודל שפה מחליט כמו אדם, כולל אותן הטיות, ואיפה כדאי לסמוך עליו.", "בקורס: מריצים מודלי שפה על אותן שאלות שנתנו לכיתה, ומשווים. במטלות מתכננים עבודה שבה ברור איפה השתמשו ב-AI."]];const det=document.getElementById('ldet');const cs=document.querySelectorAll('#s-struct .fcell');
+cs.forEach(c=>c.addEventListener('click',()=>{const d=D[c.dataset.i];cs.forEach(x=>x.classList.toggle('on',x===c));det.innerHTML='<b>'+d[0]+'</b><p>'+d[1]+'</p><p>'+d[2]+'</p>';}));})();
 </script>
 </body>
 </html>
