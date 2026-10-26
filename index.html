@@ -36,6 +36,13 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .gap{height:26px}.gap2{height:44px}
 .st{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .st.show{opacity:1;transform:none}
+.srcl{display:grid;grid-template-columns:1fr 1.5fr;gap:28px;margin-top:14px;background:#fff;border-radius:18px;padding:14px 24px;font-size:20px;line-height:1.4;color:#33415f;box-shadow:0 2px 0 var(--line)}
+.srcl span{display:block;font-size:16px;font-weight:700;color:var(--coral);margin-bottom:2px}
+.srcd{display:grid;grid-template-columns:1fr 1.7fr;gap:28px;margin-top:22px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:14px 24px;font-size:20px;line-height:1.4;color:#dbe4f7}
+.srcd span{display:block;font-size:16px;font-weight:700;color:var(--sig2);margin-bottom:2px}
+.srcp{position:absolute;left:40px;top:262px;width:500px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:18px 24px;font-size:23px;line-height:1.4;color:#dbe4f7}
+.srcp b{display:block;font-size:30px;color:#fff;margin-bottom:6px}.srcp p{margin:0 0 10px}.srcp p span{display:block;font-size:18px;font-weight:700;color:var(--sig2);margin-bottom:1px}
+
 .cite{position:absolute;bottom:26px;left:110px;font-size:14px;color:#7f90b8;direction:ltr}
 .light .cite{color:#8a93aa}
 .tagc{position:absolute;bottom:26px;right:110px;font-size:14px;font-weight:700;color:#7f90b8;display:flex;gap:8px;align-items:center}
@@ -298,7 +305,11 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   <div class="big" style="margin-top:14px">כמה פעמים הם בוחרים נכון?</div>
   <div class="pills" id="pills"></div>
   <div class="st" style="margin-top:34px;display:flex;align-items:baseline;gap:26px"><span class="mega acc num">56%</span><span class="whisper">הטלת מטבע נותנת 50%.<br>כמעט אותו דבר.</span></div>
-  <div class="tagc">הפעלה</div><div class="cite">Sackett et al. (2022): unstructured interview r ≈ .19 → 56% of pairs</div>
+  <div class="st srcp"><b>מאיפה המספר?</b>
+    <p><span>המקור</span>Sackett et al. (2022), מטה-אנליזה ב-Journal of Applied Psychology על תוקף שיטות מיון.</p>
+    <p><span>הממצא</span>ראיון לא מובנה: מתאם של כ-0.19 בין הציון בראיון לביצוע בעבודה.</p>
+    <p><span>המשמעות</span>בין שני מועמדים, המראיין בוחר את החזק מהם ב-56% מהמקרים. הטלת מטבע: 50%.</p></div>
+  <div class="tagc">הפעלה</div>
 </section>
 
 <section class="slide light" id="s-meehl" data-title="מומחה מול נוסחה" data-part="a">
@@ -311,7 +322,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     <div class="hb"><span>🧑‍⚕️ המומחה ניצח</span><span class="tr"><i data-w="6" style="background:var(--coral)"></i></span><b class="num">6%</b></div>
   </div>
   <div class="big st" style="margin-top:16px">הנוסחה <span class="acc">כמעט אף פעם לא הפסידה.</span></div>
-  <div class="tagc">פרק 9</div><div class="cite">Meehl (1954); Grove et al. (2000), ~136 studies</div>
+  <div class="st srcl"><div><span>המקור</span>Meehl (1954); Grove et al. (2000), מטה-אנליזה של 136 מחקרים, Psychological Assessment.</div><div><span>הקונטקסט</span>בכל מחקר הושוו תחזיות של מומחים לנוסחה סטטיסטית על אותו מידע בדיוק: קבלה ללימודים, פשיעה חוזרת, אבחון רפואי. האחוזים הם חלקם של המחקרים בכל תוצאה.</div></div>
+  <div class="tagc">פרק 9</div>
 </section>
 
 <section class="slide dark" id="s-twist" data-title="החיקוי ניצח" data-part="a">
@@ -319,7 +331,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   <div class="say" style="margin-top:14px">הוא בנה נוסחה שמחקה שופט.<br>היא לומדת רק מההחלטות של השופט עצמו.</div>
   <div class="whisper st" style="margin-top:18px">היא לא יודעת שום דבר שהשופט לא יודע.</div>
   <div class="huge st acc" style="margin-top:30px">והחיקוי ניצח את המקור.</div>
-  <div class="tagc">פרק 9</div><div class="cite">Goldberg (1970), Man versus model of man</div>
+  <div class="st srcd"><div><span>המקור</span>Goldberg (1970), "Man versus model of man", Psychological Bulletin.</div><div><span>הקונטקסט</span>פסיכולוגים סיווגו פרופילים כנוירוטיים או פסיכוטיים. חוקר בנה לכל אחד מהם נוסחה שלומדת רק מהסיווגים שלו, והנוסחה צדקה יותר מהשופט עצמו ברוב המקרים. הסיבה: הנוסחה עקבית, ואצל השופט יש רעש.</div></div>
+  <div class="tagc">פרק 9</div>
 </section>
 
 <section class="slide light" id="s-rate" data-title="🎮 תנו לדנה ציון" data-part="a">
