@@ -143,17 +143,23 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .dark .chip{background:rgba(255,255,255,.08);box-shadow:none;border:1px solid rgba(255,255,255,.2);color:#dbe4f7}
 
 /* updates */
-.upd{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:30px}
-.urow{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:12px}
+.upd{display:grid;grid-template-columns:1fr;gap:0;margin-top:10px}
+.uhead,.urow{display:grid;grid-template-columns:340px 1fr 1.2fr;gap:24px;align-items:center}
+.uhead{font-size:18px;color:#7f90b8;font-weight:700;margin-top:6px;padding-bottom:2px}
+.urow{border-bottom:1px solid rgba(255,255,255,.12);padding:5px 0}
 .urow b{font-size:26px}
-.urow span{font-size:21px;line-height:1.4;color:#b8c6e8}
-.urow span i{font-style:normal;color:#7f90b8;text-decoration:line-through}
-.urow span em{font-style:normal;color:var(--sig2);font-weight:700}
+.urow b small{display:block;font-size:17px;font-weight:400;color:#9fb0d6;margin-top:0}
+.urow i{font-style:normal;font-size:21px;color:#9fb0d6}
+.urow em{font-style:normal;font-size:22px;color:var(--sig2);font-weight:700}
 
 /* live */
 .flow{display:flex;align-items:center;gap:18px;margin-top:40px}
 .fs{flex:1;text-align:center;background:#fff;border-radius:22px;padding:26px 10px;box-shadow:0 2px 0 var(--line),0 14px 34px rgba(22,33,58,.08)}
 .fs .e{font-size:58px}.fs b{display:block;font-size:30px;margin-top:6px}
+.fs{cursor:pointer;border:2px solid transparent;font-family:inherit;color:inherit;transition:transform .15s,border-color .15s}
+.fs:hover{transform:translateY(-3px)}.fs.on{border-color:var(--coral);transform:translateY(-3px)}
+.fdet{margin-top:20px;background:#fff;border-radius:18px;padding:16px 24px;min-height:92px;font-size:22px;line-height:1.45;box-shadow:0 2px 0 var(--line)}
+.fdet b{display:block;font-size:25px;margin-bottom:4px}.fdet b.h{color:#6b7794;font-weight:600}.fdet span{color:#4a5675}
 .arr{font-size:40px;color:var(--coral);font-weight:800}
 
 /* syllabus */
@@ -163,7 +169,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 .ucell:hover{transform:translateY(-2px)}
 .ucell.sel{box-shadow:inset 0 0 0 3px var(--ink);background:#fffaf2}
 .ucell .u{font-size:12.5px;font-weight:800}
-.ucell b{display:block;font-size:15.5px;line-height:1.25;margin-top:2px}
+.ucell b{display:block;font-size:15.5px;line-height:1.25;margin-top:0}
 .ucell.new:after{content:"חדש";position:absolute;left:8px;top:7px;font-size:11px;font-weight:800;background:var(--coral);color:#fff;border-radius:6px;padding:0 6px}
 .udet{background:#fff;border-radius:22px;padding:22px 26px;box-shadow:0 2px 0 var(--line),0 14px 34px rgba(22,33,58,.08);min-height:420px}
 .udet .tp{font-size:15px;font-weight:800;color:var(--coral)}
@@ -428,27 +434,29 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 
 <section class="slide dark" id="s-upd" data-title="מה השתנה מאז כהנמן" data-part="b">
   <div class="big">מה השתנה מאז כהנמן</div>
+  <div class="uhead"><span></span><span>מה חשבו</span><span>מה מצאו מאז</span></div>
   <div class="upd">
-    <div class="urow"><b>תחול חברתי</b><span><i>חזק</i> → <em>רובו לא שוחזר</em></span></div>
-    <div class="urow"><b>היד החמה</b><span><i>כשל</i> → <em>כנראה קיימת</em></span></div>
-    <div class="urow"><b>רתיעה מהפסד</b><span><i>פי 2</i> → <em>1.96, עם שונות גדולה</em></span></div>
-    <div class="urow"><b>נאדג'ים</b><span><i>8.7 נק'</i> → <em>1.4 נק' בשטח</em></span></div>
-    <div class="urow"><b>כסף ואושר</b><span><i>תקרה</i> → <em>ממשיך לעלות לרובנו</em></span></div>
-    <div class="urow"><b>מודלי שפה</b><span><i>לא היה</i> → <em>מוטים ורועשים</em></span></div>
+    <div class="urow"><b>פריימינג<small>רמז קטן משפיע על התנהגות</small></b><i>הממצא היה חזק</i><em>רוב הניסויים לא שוחזרו</em></div>
+    <div class="urow"><b>היד החמה<small>רצף קליעות מגדיל סיכוי לקלוע</small></b><i>נחשב אשליה</i><em>כנראה קיימת, אפקט קטן</em></div>
+    <div class="urow"><b>רתיעה מהפסד<small>הפסד כואב כפליים מרווח</small></b><i>פי 2</i><em>1.96, עם שונות גדולה בין מחקרים</em></div>
+    <div class="urow"><b>נאדג'ים<small>דחיפה עדינה לבחירה טובה</small></b><i>השפעה של 8.7 נק'</i><em>1.4 נק' בשטח</em></div>
+    <div class="urow"><b>כסף ואושר<small>האם יותר כסף מגביר אושר</small></b><i>האושר נעצר ברמה מסוימת</i><em>ממשיך לעלות לרובנו</em></div>
+    <div class="urow"><b>מודלי שפה<small>הטיות של מודלים כמו של בני אדם</small></b><i>לא נבדק</i><em>מוטים ורועשים</em></div>
   </div>
-  <div class="whisper" style="margin-top:28px">לא מסתירים את העדכונים. הופכים אותם לשיעור בשיפוט ראיות.</div>
+  <div class="whisper" style="margin-top:12px;font-size:22px">לא מסתירים את העדכונים. הופכים אותם לשיעור בשיפוט ראיות.</div>
   <div class="tagc b">עדכונים מחקריים</div>
 </section>
 
 <section class="slide light" id="s-live" data-title="קודם ניסוי" data-part="b">
-  <div class="huge">קודם ניסוי.<br><span class="acc">אחר כך מאמר.</span></div>
+  <div class="huge" style="font-size:54px">בכל נושא: קודם מנסים,<br><span class="acc">ורק אחר כך קוראים.</span></div>
   <div class="flow">
-    <div class="fs"><div class="e">🔮</div><b>חוזים</b></div><span class="arr">←</span>
-    <div class="fs"><div class="e">🙋</div><b>משתתפים</b></div><span class="arr">←</span>
-    <div class="fs"><div class="e">📊</div><b>רואים נתונים</b></div><span class="arr">←</span>
-    <div class="fs"><div class="e">📖</div><b>קוראים</b></div>
+    <button class="fs" data-i="0"><div class="e">🔮</div><b>חוזים</b></button><span class="arr">←</span>
+    <button class="fs" data-i="1"><div class="e">🙋</div><b>משתתפים</b></button><span class="arr">←</span>
+    <button class="fs" data-i="2"><div class="e">📊</div><b>רואים נתונים</b></button><span class="arr">←</span>
+    <button class="fs" data-i="3"><div class="e">📖</div><b>קוראים</b></button>
   </div>
-  <div class="whisper" style="margin-top:28px">"כמה שעות ייקח לכם הממ״ן?" נבדוק אחרי ההגשה: כשל התכנון על נתוני הקורס עצמו.</div>
+  <div class="fdet" id="fdet"><b class="h">לחצו על שלב כדי לראות למה הכוונה</b></div>
+  <div class="whisper" style="margin-top:14px;font-size:20px">"כמה שעות ייקח לכם הממ״ן?" נבדוק אחרי ההגשה: כשל התכנון על נתוני הקורס עצמו.</div>
   <div class="tagc b">דרך ההוראה</div>
 </section>
 
@@ -704,6 +712,9 @@ bidiFix(stage);bidiFix($('#appxSyl'));bidiFix($('#appxNotes'));
 
 const si=slides.findIndex(s=>s.id===(location.hash||'').slice(1));show(si>=0?si:0);
 addEventListener('beforeprint',()=>{$$('.st').forEach(s=>s.classList.add('show'));Object.values(printers).forEach(f=>f());});
+
+(function(){const D=[["חוזים: לפני שמראים תוצאה, כל סטודנט מנחש אותה.", "למשל: \"כמה שעות ייקח לכם הממ״ן?\" כל אחד רושם הערכה לפני שמישהו רואה נתונים. הניחוש הוא נקודת ההתחלה."], ["משתתפים: הכיתה עצמה היא המדגם: כולם עושים את המשימה.", "למשל: סקר בזום, כשהכיתה מתחלקת לשני תנאים לפי חודש לידה, וכל תנאי מקבל גרסה אחרת של השאלה."], ["רואים נתונים: רואים מה יצא בכיתה, ומשווים לניחוש.", "התוצאות מוצגות מיד. הפער בין מה שניחשנו למה שהתקבל הוא הרגע שבו הטיה נהיית גלויה."], ["קוראים: רק עכשיו קוראים את המאמר המקורי.", "הקריאה באה אחרי החוויה האישית, ולכן הסטודנטים מבינים מה נבדק ולמה התוצאה חשובה. כך מגיעים לדיון במאמר עם משהו להשוות אליו."]];const det=document.getElementById('fdet');const cards=document.querySelectorAll('#s-live .fs');
+cards.forEach(c=>c.addEventListener('click',()=>{const d=D[c.dataset.i];cards.forEach(x=>x.classList.toggle('on',x===c));det.innerHTML='<b>'+d[0]+'</b><span>'+d[1]+'</span>';}));})();
 </script>
 </body>
 </html>
